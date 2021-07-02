@@ -1,0 +1,19 @@
+{
+  "name": "shop-fiesta",
+  "version": "1.0.0",
+  "description": "Shop Fiesta backend API",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "SET NODE_ENV=production node server.js"
+  },
+  "author": "Mihir Shah",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  }
+}
