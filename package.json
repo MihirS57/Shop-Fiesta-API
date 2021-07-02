@@ -4,14 +4,16 @@
   "description": "Shop Fiesta backend API",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "SET NODE_ENV=production node server.js"
+    "dev": "nodemon server",
+    "start": "SET NODE_ENV=production && node server.js"
   },
   "author": "Mihir Shah",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.13.0",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.9"
