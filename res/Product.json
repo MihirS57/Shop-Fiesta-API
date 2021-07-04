@@ -1,0 +1,29 @@
+[
+    {
+        "available": true,
+        "warranty": "1 Year",
+        "name": "Apple iPhone 12",
+        "cost": 50000,
+        "type": "mobile",
+        "description": "Latest and greatest iPhone ever to be made",
+        "countryOfOrigin": "United States of America"
+    },
+    {
+        "available": true,
+        "warranty": "1 Year",
+        "name": "Apple iPhone 11",
+        "cost": 49000,
+        "type": "mobile",
+        "description": "Latest and greatest iPhone ever to be made lol",
+        "countryOfOrigin": "United States of America",
+    },
+    {
+        "available": true,
+        "warranty": "1 Year",
+        "name": "Samsung SmartTV 4K 2020",
+        "cost": 75000,
+        "type": "tv",
+        "description": "High definition samsung internet enabled tv",
+        "countryOfOrigin": "India",
+    }
+]

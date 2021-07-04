@@ -14,14 +14,19 @@ connectDb();
 
 //routes
 const auth = require('./routes/auth');
-const customers = require('./routes/customers');
-
+const users = require('./routes/users');
+//const customers = require('./routes/customers');
+const products = require('./routes/products');
+//const suppliers = require('./routes/suppliers');
 app.use(express.json())
 app.use(morgan('dev'))
 
 //route use
 app.use('/api/v1/auth',auth);
-//app.use('/api/v1/customers',customers);
+app.use('/api/v1/users',users);
+/*app.use('/api/v1/customers',customers);
+app.use('/api/v1/suppliers',suppliers);*/
+app.use('/api/v1/products',products);
 
 app.use(errorHandle);
 const server = app.listen(PORT, () => {
@@ -33,3 +38,9 @@ process.on('unhandledRejection',(err,promise) =>{
     console.log(err.name);
     server.close(()=>process.exit(1));
 })
+
+/*
+auth: update details, update password, register, login, forgot password, resetpassword
+customers: get user profile, get user cart (User), delete account
+dealers: get users, create users, get user, update user, delete user
+*/
