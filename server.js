@@ -17,6 +17,7 @@ const auth = require('./routes/auth');
 const users = require('./routes/users');
 //const customers = require('./routes/customers');
 const products = require('./routes/products');
+const orders = require('./routes/orders');
 //const suppliers = require('./routes/suppliers');
 app.use(express.json())
 app.use(morgan('dev'))
@@ -27,6 +28,7 @@ app.use('/api/v1/users',users);
 /*app.use('/api/v1/customers',customers);
 app.use('/api/v1/suppliers',suppliers);*/
 app.use('/api/v1/products',products);
+app.use('/api/v1/orderProduct',orders);
 
 app.use(errorHandle);
 const server = app.listen(PORT, () => {

@@ -1,4 +1,5 @@
 const Product = require('../models/Product');
+const Order = require('../models/Order');
 const errorResponse = require('../utils/errorResponse');
 const Cart = require('../models/Cart');
 // @desc    Fetch all products
@@ -111,4 +112,8 @@ exports.addToCart = async (req,res,next) => {
         next(new errorResponse(err.message,404));
     }
 }
+
+
+
+
 
