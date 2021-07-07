@@ -34,6 +34,7 @@ exports.userProfile = async (req,res,next) => {
 exports.userCart = async (req,res,next) => {
     try{
         const userId = req.params.Id;
+        let i,cartCount,totalCost=0;
         if(!req.user.id == userId && !req.user.role == 'admin'){
             return next(new errorResponse('Unauthorized',401));
         }
@@ -43,15 +44,20 @@ exports.userCart = async (req,res,next) => {
         }
         const cart = await Cart.find({customer:userId}).populate({
             path: 'product supplier',
-            select: 'name description company countryOfOrigin'
+            select: 'name cost description company countryOfOrigin'
         });
         if(!cart){
             return next(new errorResponse('Cart empty',401));
+        }
+        cartCount = cart.length
+        for(i=0;i<cartCount;i++){
+            totalCost = totalCost+cart[i].product.cost
         }
         res.status(200)
         .json({
             success: true,
             count: cart.length,
+            totalCost: totalCost,
             user: users.name,
             cart: cart
         })
@@ -60,4 +66,30 @@ exports.userCart = async (req,res,next) => {
         next(new errorResponse(err.message,404));
     }
 }
+
+// @desc    Delete product from user cart
+// @route   DELETE /api/v1/users/cart/:Id
+// @access  Private/User
+exports.removeFromCart = async (req,res,next) => {
+    try{
+        const cartId = req.params.Id;
+        if(!cartId){
+            return next(new errorResponse('Sorry, could not delete item',400));
+        }
+        const cartItem = await Cart.findByIdandDelete(cartId);
+        if(!cartItem){
+            return next(new errorResponse('Cart already empty',404));
+        }
+        res.status(200)
+        .json({
+            success: true,
+            message: 'Cart item deleted'
+        })
+    }catch(err){
+        console.log(err.name);
+        return next(new errorResponse(err.stack,404));
+    }
+}
+
+
 

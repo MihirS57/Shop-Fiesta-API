@@ -5,6 +5,10 @@ const CartSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
+    totalCost: {
+        type: Number, 
+        default: 0
+    },
     supplier: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
