@@ -65,10 +65,10 @@ exports.addProduct = async (req,res,next) => {
     try{
         req.body.type = req.params.productType;
         req.body.supplier = req.user.id;
-        const {name,cost,company,dimensions,weight,available,type,warranty,description,countryOfOrigin,supplier} = req.body;
+        const {name,cost,company,gender,dimensions,ageGroup,weight,available,imageUrl,type,warranty,description,countryOfOrigin,supplier} = req.body;
         
         const product = await Product.create({
-            name,cost,company,dimensions,weight,available,warranty,type,description,countryOfOrigin,supplier
+            name,cost,company,gender,dimensions,ageGroup,weight,available,imageUrl,warranty,type,description,countryOfOrigin,supplier
         })
         if(!product){
             return next(new errorResponse('Some error occurred while registering the product',404));

@@ -14,11 +14,23 @@ const ProductSchema = new mongoose.Schema({
         maxlength: 500,
         required: [true,'Please add a product description']
     },
+    imageUrl: {
+        type: String,
+        required: [true,'Please provide an image url']
+    },
     dimensions: {
         type: String
     },
     weight: {
         type: String
+    },
+    gender: {
+        type: String,
+        enum: ['Male','Female']
+    },
+    ageGroup: {
+        type: String,
+        enum: ['Babies','Kids','Teenagers','Adults','Senior']
     },
     cost: {
         type: Number,
@@ -26,7 +38,7 @@ const ProductSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        enum: ['electronics','mobile','home','fashion'],
+        enum: ['electronics','mobile','home-appliances','fashion','grocery','home'],
         required: [true,'Please enter type of product']
     },
     available:{

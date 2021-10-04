@@ -7,7 +7,7 @@ const {registerUser,
 
 router.route('/register').post(registerUser);
 router.route('/users').get(getUsers);   //only admin token authorized
-router.route('/login').get(loginUser);
+router.route('/login').post(loginUser);
 
 
 module.exports = router;

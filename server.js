@@ -2,6 +2,7 @@ const express = require('express')
 const dotenv = require('dotenv')
 const path = require('path')
 const morgan = require('morgan');
+const cors = require("cors");   //this allows my local flutter app to access the api
 const errorHandle = require('./middleware/error');
 dotenv.config({path: './config/config.env'})
 
@@ -21,7 +22,7 @@ const orders = require('./routes/orders');
 //const suppliers = require('./routes/suppliers');
 app.use(express.json())
 app.use(morgan('dev'))
-
+app.use(cors());
 //route use
 app.use('/api/v1/auth',auth);
 app.use('/api/v1/users',users);
